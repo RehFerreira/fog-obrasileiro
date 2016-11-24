@@ -1,17 +1,15 @@
 <?php
-    ob_start();
-	include "abreConexao.php";
+	include "conexao/conecta.php";
 
 	if(isset($_SESSION)){
 		session_destroy();
 		
-		header("Location:index.php");
+		echo"<meta http-equiv='refresh' content='20;url=index.php'>";
 	}
 	else{
-        setcookie("usuario", "", time() - 3600);
-        setcookie("password", "", time() - 3600);
-		setcookie("id_usuario", "", time() - 3600);
+		//setcookie("login");
+		//setcookie("senha");
 
-		header("Location:index.php");
+		echo"<meta http-equiv='refresh' content='0;url=index.php'>";
 	}
 ?>

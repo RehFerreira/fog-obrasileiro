@@ -1,5 +1,5 @@
 <?php
-	include "template/topoAdm.php";
+	include "template/topo.php";
 	$nome_receita = $_POST['nome_receita'];
 	$estado_receita = $_POST['estado_receita'];
 	$historia = $_POST['historia'];
@@ -20,10 +20,10 @@
 	}
 
 	if($conexao){
-		$sql = "insert into prato(nome_receita, estado_receita, historia, modo_de_preparo, foto_receita, ingredientes, tempo_preparo, rendimento)"."values('$nome_receita','$estado_receita','$historia','$modo_preparo','$foto','$ingredientes','$tempo_de_preparo','$rendimento')";
+		$sql = "insert into receita(nome_receita, estado_receita, historia, modo_de_preparo, foto_receita, ingredientes, tempo_preparo, rendimento)"."values('$nome_receita','$estado_receita','$historia','$modo_preparo','$foto','$ingredientes','$tempo_de_preparo','$rendimento')";
 		$rs = mysqli_query($conexao,$sql);
 		if($rs){
-			echo "<meta http-equiv='refresh' content='0;url=listaPrato.php'>";
+			echo "<h1>Receita Cadastrada :)</h1>";
 		}
 		else{
 			echo "<h1>Erro de inclusão: </h1>".mysqli_error($conexao);
@@ -32,6 +32,6 @@
 	else{
 		echo "<h1>Erro de Conexão :(</h1>".mysqli_error($conexao);
 	}
-	
-	include "template/rod.php";
+	echo "<a href = 'listaPrato.php'>Lista de pratos</a>";
+	include "template/rodape.php";
 ?>
